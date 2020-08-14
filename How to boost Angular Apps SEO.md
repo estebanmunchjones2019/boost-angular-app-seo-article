@@ -323,9 +323,9 @@ Now it’s time to make some changes to some files in our Angular app:
 
 ​        The title is in red, and the description is in yellow. Pretty useful for users, uh?
 
-2. **Let’s use just one <code><h1></h1></code> tag in our app routes, and use meaningful headers**:
+2. **Let’s use just one `h1`  tag in our app routes, and use meaningful headers**:
 
-   Inside our `home.component.html`, we could change the <code><h1></h1></code> tag content like this, making the title more meaningful:  
+   Inside our `home.component.html`, we could change the `h1` tag content like this, making the title more meaningful:  
 
    ````html
    Change this:
