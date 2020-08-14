@@ -23,7 +23,7 @@ According to Google, they follow three basic steps to generate results from web 
 
 > ###### **Crawling**
 
-> Once Google discovers a page URL, it visits, or _crawls_, the page to **find out what's on it** (using bots). Google **renders the page and analyzes both the text and non-text content and overall visual layout** to decide where it should appear in Search results. **The better that Google can understand your site, the better we can match it to people who are looking for your content.
+> Once Google discovers a page URL, it visits, or _crawls_, the page to **find out what's on it** (using bots). Google **renders the page and analyzes both the text and non-text content and overall visual layout** to decide where it should appear in Search results. The better that Google can understand your site, the better we can match it to people who are looking for your content.
 
 > ###### **Indexing**
 
@@ -43,7 +43,7 @@ Now that we know the 3 main steps Google uses to position search results, let �
 
 #### **Change#1: Prerender html content for each route**
 
-To learn how to pre-render content, let’s create a **simple project with 3 routes: ‘/home’, ‘/about’ and ‘/contact’**. The finished project can be found on [this gitHub repo]( https://github.com/estebanmunchjones2019/boost-angular-app-seo).
+To learn how to pre-render content, let’s create a **simple project with 3 routes: `/home`, `/about` and `/contact`**. The finished project can be found on [this gitHub repo]( https://github.com/estebanmunchjones2019/boost-angular-app-seo).
 
 Follow the steps below to create the app together:
 
@@ -53,7 +53,7 @@ Install the Angular CLI globally with the following command:
 npm install -g @angular/cli
 ```
 
-Then, create a new application. We can name it "boost-angular-app-seo":
+Then, create a new application. We can name it `boost-angular-app-seo`:
 
 ```bash
 ng new boost-angular-app-seo
@@ -161,7 +161,7 @@ Let’s now serve the app with:
 ng serve
  ```
 
-and explore the content of the ‘/home’ route by clicking "view source code":
+and explore the content of the `/home` route by clicking `view source code`:
 
 ![home route view](image01.png)
 
@@ -175,7 +175,7 @@ Not much content for Google when visiting our page, uh? We only have
 
 with any content inside, and some scripts at the bottom. 
 
-Angular apps are SPAs (Single Page Applications) and the content inside <app-root></app-root> is rendered at runtime; in other words: the browser runs the Angular bundled JavaScript files and then, renders the HTML content.
+Angular apps are SPAs (Single Page Applications) and the content inside `<app-root></app-root>` is rendered at runtime; in other words: the browser runs the Angular bundled JavaScript files and then, renders the HTML content.
 
 Relying on Google bots executing our JavaScript to finally see the content is not the best way. So, the objective now is to pre-render each route’s HTML content, so bots can instantly see it, without the need of executing any JavaScript.
 
@@ -191,7 +191,7 @@ First, check the software requirements:
 * Node.js: **10** or higher.
 * Chromium: **IMPORTANT:** *Scully uses Chromium. Therefore, your Operating System, as well as its administrator rights must allow its installation and execution.*
 
-Make sure you meet all those requirements when building the app on your machine. Our demo app already has a routing.config.module.ts file, which is pre-requisite for Scully. **If you don’t have it in your project**, you can create one with the following command: 
+Make sure you meet all those requirements when building the app on your machine. Our demo app already has a `routing.config.module.ts` file, which is pre-requisite for Scully. **If you don’t have it in your project**, you can create one with the following command: 
 
 ```bash
 ng generate module app-routing --flat --module=app
@@ -209,7 +209,7 @@ ng add @scullyio/init
 ng serve
 `````
 
-After adding Scully,  we have a config file named scully.<projectName>.config.ts, where the projectName is the name of our Angular project. For this demo app, this file looks like this:
+After adding Scully,  we have a config file named `scully.<projectName>.config.ts`, where the `projectName ` is the name of our Angular project. For this demo app, this file looks like this:
 
 ````typescript
 // scully.boost-angular-app-seo.config.ts
@@ -229,7 +229,7 @@ Even with this basic config, we are now ready to build our Angular app using Scu
 
 **NOTE**: It is important to know that any routes in the Angular project that contain route parameters will not be pre-rendered until we modify the above config to account for those parameters. This in note the case of our demo app, because we don’t have any route parameters.
 
-Before Scully can run we need to build our Angular project. Let’s make sure we output the build files into a folder inside the ‘/dist’ folder. For this demo app, the angular.json file has this default config:
+Before Scully can run we need to build our Angular project. Let’s make sure we output the build files into a folder inside the `/dist` folder. For this demo app, the angular.json file has this default config:
 
 ````typescript
 //angular.json
@@ -241,7 +241,7 @@ Before Scully can run we need to build our Angular project. Let’s make sure we
              ...
 ````
 
-So, the Angular build will be added to a folder named "boost-angular-app-seo" inside the "dist" folder.
+So, the Angular build will be added to a folder named `boost-angular-app-seo` inside the `dist` folder.
 
 Let’s now build our Angular app running this command:
 
@@ -257,17 +257,17 @@ npm run scully
 
 We did it! We have turned our Angular app into a wicked fast pre-rendered static site thanks to Scully.
 
-The Scully-built version of the project is located in the ‘/dist/static’ folder. It contains all the static pages in the project. In our app, it has 3 index.html files, one for each route:
+The Scully-built version of the project is located in the `/dist/static` folder. It contains all the static pages in the project. In our app, it has 3 `index.html` files, one for each route:
 
 ![Scully's project folder structure](image03.png)
 
-Each index.html file has the pre-rendered html that corresponds to each route. 
+Each `index.html` file has the pre-rendered html that corresponds to each route. 
 
-If the application has 1000 routes, there should be 1000 index.html files in the 'dist/static' folder.
+If the application has 1000 routes, there should be 1000 `index.html` files in the `dist/static` folder.
 
- The name of the folders inside '/dist/static' have the name of the routes. So if you have a route ‘/news’ in your app, there will be a folder '/news', which holds an index.html file.
+ The name of the folders inside `/dist/static` have the name of the routes. So if you have a route `/news` in your app, there will be a folder `/news`, which holds an `index.html` file.
 
-These index.html files are jamstack-packed with HTML and CSS. This means that Scully built successfully, and that our app is now pre-rendered.
+These `index.html` files are jamstack-packed with HTML and CSS. This means that Scully built successfully, and that our app is now pre-rendered.
 
 The build is now ready, and Scully provides a server, so that we can test out our jamstack site. To launch Scully's test server, let’s run the following command:
 
@@ -283,19 +283,19 @@ Scully static server started on "http://localhost:1668/"
 Angular distribution server started on "http://localhost:1864/"
 ````
 
-This command actually launches **2 (two)** servers. The first one is hosting the results of ng build (serving the files inside ‘/boost-angular-app-seo’, and the second server hosts the results of the Scully build (serving the files inside ‘/static’ folder). This allows us to test both versions of our built app. Very cool!
+This command actually launches **2 (two)** servers. The first one is hosting the results of `ng build` (serving the files inside `/boost-angular-app-seo`, and the second server hosts the results of the Scully build (serving the files inside `/static` folder). This allows us to test both versions of our built app. Very cool!
 
-If we now access http://localhost:1668/", where the ‘/static’ folder is served, we can actually test again with ‘view page source’ in the ‘/’ route and we’ll see this:
+If we now access http://localhost:1668/, where the `/static` folder is served, we can actually test again with `view page source` in the `/` route and we’ll see this:
 
 ![view source code of home route with Scully](image04.png)
 
-Now we see that there’s content inside <app-root></app-root> tags! That’s what we needed!
+Now we see that there’s content inside `<app-root></app-root> ` tags! That’s what we needed!
 
-What happens if we now go to ‘/about’ using the navigation link, and inspect again with ‘view source code’? The about page looks like this now:
+What happens if we now go to `/about` using the navigation link, and inspect again with `view source code`? The about page looks like this now:
 
 ![view source code of about route with Scully](image05.png)
 
-So, every route has its content pre-rendered, and thit will improve the page SEO because the content is now visible to bots.
+So, every route has its content pre-rendered, and this will improve the page SEO because the content is now visible to bots.
 
 
 
@@ -303,11 +303,11 @@ So, every route has its content pre-rendered, and thit will improve the page SEO
 
 Why do we need to add HTML tags?
 
-These tags **let bots properly understand what’s our web page content about and index it **(categorize the material) **properly**.
+These tags **let bots properly understand what’s our web page content about and index it** (categorize the material) **properly**.
 
 Now it’s time to make some changes to some files in our Angular app:
 
-1. **The most important tag for SEO is the title**, and it is kind of the label of your content, and the other one is description meta tag, which is useful for users to decide if they want to visit the page. Let’s add this to the index.html file:  
+1. **The most important tag for SEO is the title**, and it is kind of the label of your content, and the other one is description meta tag, which is useful for users to decide if they want to visit the page. Let’s add this to the `index.html` file:  
 
    ````html
    //index.html file located at the root level of '/src'
@@ -323,9 +323,9 @@ Now it’s time to make some changes to some files in our Angular app:
 
 ​        The title is in red, and the description is in yellow. Pretty useful for users, uh?
 
-2. **Let’s use just one <h1> tag in our app routes, and use meaningful headers**:
+2. **Let’s use just one** `'h1'` **tag in our app routes, and use meaningful headers**:
 
-   Inside our home.component.html, we could change the h1 tag content like this, making the title more meaningful:  
+   Inside our `home.component.html`, we could change the `'h1'` tag content like this, making the title more meaningful:  
 
    ````html
    Change this:
@@ -339,7 +339,7 @@ Now it’s time to make some changes to some files in our Angular app:
 
 3. **Let’s add  Microdata**, which is a set of tags, introduced with HTML5:
 
-   [Schema.org](https://schema.org/) provides a collection of shared vocabularies webmasters can use to mark up their pages in ways that can be understood by the major search engines: Google, Microsoft, Yandex and Yahoo! Let’s change our index.html file and add this:  
+   [Schema.org](https://schema.org/) provides a collection of shared vocabularies webmasters can use to mark up their pages in ways that can be understood by the major search engines: Google, Microsoft, Yandex and Yahoo! Let’s change our`index.html file` and add this:  
 
    ````html
    //index.html file located at the root level of '/src'
@@ -355,7 +355,7 @@ Now it’s time to make some changes to some files in our Angular app:
 
 4. **Customize how your site is shared on Facebook and WhatsApp**:
 
-   Open Graph meta tags** are snippets of code that control how URLs are displayed when shared on social media. In the case of Facebook and WhatsApp, the tags in index.html file should be like this:  
+   **Open Graph meta tags** are snippets of code that control how URLs are displayed when shared on social media. In the case of Facebook and WhatsApp, the tags in `index.html` file should be like this:  
 
    ```html
    //index.html file located at the root level of '/src'
@@ -371,15 +371,15 @@ Now it’s time to make some changes to some files in our Angular app:
 
     
 
-   You may be wondering about this URL: https://boost-angular-app-seo.web.app for the og:url tag, and it’s simply the URL where our app will be served, and, of course, depends on where you host the app. You can leave it blank and then add it after you deploy the app for the first time.
+   You may be wondering about this URL: https://boost-angular-app-seo.web.app for the `og:url` tag, and it’s simply the URL where our app will be served, and, of course, depends on where you host the app. You can leave it blank and then add it after you deploy the app for the first time.
 
-   In the og:image tag, make sure you add a nice picture, and point at an URL where your picture is hosted. You can leave this URL blank and add it when you are sure about it.
+   In the `og:image` tag, make sure you add a nice picture, and point at an URL where your picture is hosted. You can leave this URL blank and add it when you are sure about it.
 
    To know more about Open Graph meta tags for Facebook and WhatsApp, check out the full documentation [here](https://developers.facebook.com/docs/sharing/webmasters/). 
 
 5. **Customize how your site is shared on Twitter**
 
-   Add this to your index.html file:  
+   Add this to your `index.html` file:  
 
    ```html
    //index.html file located at the root level of '/src'
@@ -393,9 +393,9 @@ Now it’s time to make some changes to some files in our Angular app:
 
    To know more about meta tags for Twitter, check out the full documentation [here](https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/markup).  
 
-   This is not an extensive guide on how to add tags, so feel free to look on the internet for other changes you can make to your index.html file, how to set up internal links, and much more.
+   This is not an extensive guide on how to add tags, so feel free to look on the internet for other changes you can make to your `index.html` file, how to set up internal links, and much more.
 
-6. After making all the previous changes to your index.html file, it’s time to **run your Angular and Scully build again**:    
+6. After making all the previous changes to your `index.html` file, it’s time to **run your Angular and Scully build again**:    
 
    ````bash
    ng build 
@@ -406,17 +406,17 @@ Now it’s time to make some changes to some files in our Angular app:
 
    ## **Deploy our boosted app to Firebase**
 
-How to deploy our ‘/static’ build folder to Firebase?
+How to deploy our `/static` build folder to Firebase?
 
 First of all, create a project on Firebase. Let’s enter [here](https://firebase.google.com/).  
 
-Then click on ‘Go to console’, on the top right corner:
+Then click on `Go to console`, on the top right corner:
 
 ![firebase homepage](image07.png)
 
 
 
-Now, let’s click on ‘add project’
+Now, let’s click on `add project`
 
 ![firebase console](image08.png)
 
@@ -473,7 +473,7 @@ Now, that the project project has been successfully created, let’s go back to 
      Don't set up a default project
    ```
 
-   Let’s choose ‘Use an existing project’ project and pick up the Firebase project you’ve created at the beginning.
+   Let’s choose `Use an existing project` and pick up the Firebase project you’ve created at the beginning.
 
    ````bash
    ? Select a default Firebase project for this directory: (Use arrow keys)
@@ -490,7 +490,7 @@ Now, that the project project has been successfully created, let’s go back to 
    ? What do you want to use as your public directory? (public)
    ````
 
-6. Let's now select the '/dist/static' folder as our public directory, by entering this in the command:  
+6. Let's now select the `/dist/static` folder as our public directory, by entering this in the command:  
 
    ```bash
    dist/static
@@ -502,31 +502,31 @@ Now, that the project project has been successfully created, let’s go back to 
    Configure as a single-page app (rewrite all urls to /index.html)? (y/N) 
    ```
 
-   Let's choose N for No, because we don't want the server to always serve the same index.html for all the routes requested. 
+   Let's choose `N` for No, because we don't want the server to always serve the same `index.html` for all the routes requested. 
 
    ````
    N
    ````
 
-8. Firebase will try to rewrite the 404.html file located at the root level of our '/dist/static' folder.
+8. Firebase will try to rewrite the `404.html` file located at the root level of our `/dist/static` folder.
 
    ````
    ? File dist/static/404.html already exists. Overwrite? (y/N) 
    ````
 
-   Let's answer N for No.
+   Let's answer `N` for No.
 
    ```
    N
    ```
 
-9. They will also try to rewrite our index.html file located at the root level of our '/dist/static' folder.
+9. They will also try to rewrite our `index.html` file located at the root level of our `/dist/static` folder.
 
    ```
    ? File dist/static/index.html already exists. Overwrite? (y/N) 
    ```
 
-   Let's anser N for No.
+   Let's answer `N` for No.
 
    ```
    N
@@ -550,4 +550,5 @@ Now, that the project project has been successfully created, let’s go back to 
     +  Deploy complete!
     ````
 
-**We made it!** Now, the deployed Angular app will have the amazing user experience an SPA can give, and it will also have good SEO, so people can find it easily.
+**We made it!** Now, the deployed Angular app will have the amazing user experience that an SPA can give, and it will also have good SEO, so people can find it easily.
+
