@@ -386,7 +386,7 @@ Now it’s time to make some changes to some files in our Angular app:
    
    <meta name="twitter:card" content="summary">
    <meta name="twitter:title" content="How to boost Angular Apps SEO">
-   <meta name="twitter:description" content="An awesome guide to boost your Angular app SEO and still have all the benefits of SPA's">
+   <meta name="twitter:description" content="An awesome guide to boost your Angular app SEO and still have all the benefits of SPAs">
    <meta name="twitter:url" content="https://boost-angular-app-seo.web.app" />
    <meta name="twitter:image" content="https://boost-angular-app-seo.web.app/assets/rocket.jpg">
    ```
