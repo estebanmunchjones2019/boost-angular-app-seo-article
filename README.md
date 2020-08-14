@@ -67,7 +67,7 @@ ng generate component about
 ng generate component contact
 ```
 
-Then, configure the routes in app.routing.module.ts file like this:
+Then, configure the routes in `app.routing.module.ts` file like this:
 
 ````typescript
 // app.routing.module.ts
@@ -445,7 +445,7 @@ Now, that the project project has been successfully created, let’s go back to 
    ? Are you ready to proceed? (Y/n) 
    ```
 
-   Type Y for Yes
+   Type `y` for Yes
 
    ```
    y
